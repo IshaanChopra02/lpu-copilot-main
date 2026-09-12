@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LPU Copilot | Find your campus place</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top" aria-label="LPU Copilot home">
+        <span class="brand-mark">L</span>
+        <span>LPU <em>copilot</em></span>
+      </a>
+      <div class="sidebar-rule"></div>
+      <p class="eyebrow">Your campus, decoded</p>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#discover"><span class="nav-icon">⌕</span> Discover</a>
+        <a class="nav-item" href="#saved"><span class="nav-icon">♡</span> Saved places <span class="nav-count" id="savedCount">0</span></a>
+        <a class="nav-item" href="#recent"><span class="nav-icon">◷</span> Recent searches</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="campus-status"><span class="status-dot"></span><span>Campus is open</span><strong>Now</strong></div>
+        <div class="profile-card"><span class="avatar">AS</span><span><b>Arjun Sharma</b><small>Student · LPU</small></span><button class="more-button" aria-label="Open profile menu">•••</button></div>
+      </div>
+    </aside>
+
+    <main class="content" id="top">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Campus guide</span><span>/</span><strong>Discover</strong></div>
+        <div class="top-actions"><button class="icon-button" id="notificationsButton" aria-label="Notifications">♧<span class="notification-dot"></span></button><button class="help-button" id="helpButton">Need help?</button></div>
+      </header>
+
+      <section class="hero" id="discover">
+        <div class="hero-copy">
+          <p class="kicker"><span></span> Built for LPU students</p>
+          <h1>Where do you want<br /><i>to be today?</i></h1>
+          <p class="hero-intro">Tell me what you’re in the mood for. I’ll find the right corner of campus.</p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true"><div class="orbit-line"></div><div class="orbit-card orbit-card-one">☕ <span>quiet corner</span></div><div class="orbit-card orbit-card-two">✦ <span>good energy</span></div><div class="orbit-core"><img src="images/lpu-logo.png" alt="" /></div></div>
+      </section>
+
+      <section class="search-zone" aria-label="Find a campus place">
+        <div class="search-label"><span class="prompt-mark">✦</span><span>Ask LPU Copilot</span><span class="mono-hint">NATURAL LANGUAGE</span></div>
+        <form class="search-form" id="searchForm">
+          <input id="searchInput" type="text" autocomplete="off" placeholder="e.g. I want to study in peace and grab a cold coffee" aria-label="Describe what you want to do on campus" />
+          <button type="submit" class="search-button">Find my place <span>↗</span></button>
+        </form>
+        <div class="example-prompts"><span>Try asking:</span><button type="button" data-prompt="I want to study in peace and grab a cold coffee">study + coffee</button><button type="button" data-prompt="I need a quick, filling meal">quick meal</button><button type="button" data-prompt="Somewhere to hang out with friends">hang out with friends</button></div>
+      </section>
+
+      <section class="results-section" id="results">
+        <div class="section-heading"><div><p class="section-overline">YOUR SHORTLIST</p><h2 id="resultsTitle">Places that feel right</h2></div><div class="result-meta"><span id="resultCount">6 places</span><button class="filter-button" id="filterToggle">Filter <span>⌄</span></button></div></div>
+        <div class="filter-row" id="filterRow" hidden><button class="filter-chip active" data-filter="all">All places</button><button class="filter-chip" data-filter="study">Study</button><button class="filter-chip" data-filter="food">Food & drinks</button><button class="filter-chip" data-filter="social">Social</button><button class="filter-chip" data-filter="outdoor">Outdoors</button></div>
+        <div class="place-grid" id="placeGrid"></div>
+      </section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="app-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <p class="section-overline" id="modalOverline">LPU COPILOT</p>
+      <h2 id="modalTitle">How can we help?</h2>
+      <div id="modalBody"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
